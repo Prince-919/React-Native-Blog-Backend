@@ -14,6 +14,14 @@ app.use(morgan("dev"));
 // routes
 app.use("/api/v1", require("./routes"));
 
+// get all
+app.get("/", (req, res) => {
+  res.status(200).send({
+    success: true,
+    message: "Fetched all posts successfully",
+  });
+});
+
 const serverStart = async () => {
   try {
     await dbConnect();
